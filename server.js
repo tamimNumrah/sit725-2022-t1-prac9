@@ -1,9 +1,27 @@
 const express = require('express');
+var cors = require('cors');
 const app = express();
+
+
+//Database connection
+
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://admin:admin@cluster0.t53lw.mongodb.net/sit725_2022?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
+
 
 app.use(express.static(__dirname+'/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
+app.use(cors());
 
 // app.get('/', function (req, res) {
 //   res.send('Hello World');
