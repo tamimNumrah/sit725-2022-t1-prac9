@@ -5,8 +5,8 @@
     "express": "^4.17.3",
     "mongodb": "^4.4.1"
   },
-  "name": "sit725-2022-t1-prac4",
-  "description": "sit 725 T1 week 4 prac",
+  "name": "sit725-2022-t1-prac5",
+  "description": "sit 725 T1 week 5 prac",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tamimNumrah/sit725-2022-t1-prac4.git"
+    "url": "git+https://github.com/tamimNumrah/sit725-2022-t1-prac5.git"
   },
   "author": "Tamim Ibn Aman",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tamimNumrah/sit725-2022-t1-prac4/issues"
+    "url": "https://github.com/tamimNumrah/sit725-2022-t1-prac5/issues"
   },
-  "homepage": "https://github.com/tamimNumrah/sit725-2022-t1-prac4#readme"
+  "homepage": "https://github.com/tamimNumrah/sit725-2022-t1-prac5#readme"
 }
