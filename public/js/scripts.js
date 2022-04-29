@@ -55,6 +55,7 @@ const addCards = (items) => {
 let socket = io();
 socket.on('number', (msg) => {
     console.log('Random number: ' + msg);
+    $("#pageTitle").html("Welcome to SIT 725 Week 5: "+ msg)
 })
 
 $(document).ready(function(){
