@@ -1,11 +1,14 @@
 const express = require('express');
-var cors = require("cors")
-const app = express();
-let projectCollection;
+var cors = require("cors");
+
 let dbConnect = require("./dbConnect");
 let projectRoutes = require("./routes/projectRoute");
 let userRoute = require("./routes/userRoute");
 
+const app = express();
+let http = require('http').createServer(app);
+let io = require('socket.io')(http);
+let projectCollection;
 
 app.use(express.static(__dirname+'/public'));
 app.use(express.json());
@@ -15,6 +18,17 @@ app.use(cors());
 //APIS
 app.use('/api/projects',projectRoutes);
 app.use('/api/user',userRoute);
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+    setInterval(()=>{
+      socket.emit('number', parseInt(Math.random()*10));
+    }, 1000);
+});
+  
 
 
 const addNumbers = (number1, number2) => {
@@ -43,6 +57,6 @@ app.get("/addTwoNumbers/:firstNumber/:secondNumber", (req, res) => {
 
 var port = process.env.port || 3000;
 
-app.listen(port, () => {
+http.listen(port, () => {
     console.log("App running at http://localhost: " + port);
 });
